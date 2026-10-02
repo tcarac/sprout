@@ -38,8 +38,14 @@ The PostgreSQL role must be able to read the source and create and drop
 databases.
 
 ```sh
-go install github.com/tcarac/sprout/cmd/sprout@latest
+git clone https://github.com/tcarac/sprout.git
+cd sprout
+GOTOOLCHAIN=go1.25.0 go install ./cmd/sprout
 ```
+
+The repository is currently private, so cloning requires access to
+`tcarac/sprout`. The installed binary is placed in your Go `bin` directory;
+put that directory on `PATH` if it is not already there.
 
 ### 2. Connect your application repository
 
