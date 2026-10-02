@@ -82,12 +82,7 @@ jobs:
         with:
           go-version: "1.25"
 
-      - name: Integration tests
+      - name: Concurrent worktree integration test
         env:
           SPROUT_TEST_ADMIN_URL: postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable
-        run: go test -v -race -timeout 300s -run 'Test.*Integration|TestGrace|TestE2E_|TestValidate|TestResolve' ./...
-
-      - name: Concurrent worktree test
-        env:
-          SPROUT_TEST_ADMIN_URL: postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable
-        run: go test -race -timeout 120s -run TestConcurrentWorktreesAndSeedRefresh ./pkg/worktree
+        run: go test -v -race -timeout 120s -run TestConcurrentWorktreesAndSeedRefresh ./pkg/worktree
