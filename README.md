@@ -43,9 +43,8 @@ cd sprout
 GOTOOLCHAIN=go1.25.0 go install ./cmd/sprout
 ```
 
-The repository is currently private, so cloning requires access to
-`tcarac/sprout`. The installed binary is placed in your Go `bin` directory;
-put that directory on `PATH` if it is not already there.
+The installed binary is placed in your Go `bin` directory; put that directory
+on `PATH` if it is not already there.
 
 ### 2. Connect your application repository
 
@@ -137,6 +136,12 @@ go test ./... -run '^$' # compile the full project
 The concurrent PostgreSQL integration test runs when
 `SPROUT_TEST_ADMIN_URL` points at a disposable server. CI runs it with
 PostgreSQL 16.
+
+## Contributing
+
+Sprout is open source and welcomes bug reports, performance measurements, and
+pull requests. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the development
+workflow. Changes to `main` go through a pull request and must pass CI.
 
 ## Origin and license
 
