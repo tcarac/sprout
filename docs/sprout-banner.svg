@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="title description">
+  <title id="title">Sprout</title>
+  <desc id="description">A green sprout growing from a PostgreSQL database, beside the words Sprout and Fresh Postgres for every worktree.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1522"/>
+      <stop offset="1" stop-color="#123238"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#5ee29c"/>
+      <stop offset="1" stop-color="#c5f77b"/>
+    </linearGradient>
+    <linearGradient id="disk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#48c7bd"/>
+      <stop offset="1" stop-color="#27849c"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="240" rx="30" fill="url(#background)"/>
+  <circle cx="138" cy="120" r="94" fill="#1a4247" opacity=".55"/>
+  <path d="M73 148v28c0 18 30 32 68 32s68-14 68-32v-28" fill="#143c49" stroke="url(#disk)" stroke-width="8"/>
+  <path d="M73 121v28c0 18 30 32 68 32s68-14 68-32v-28" fill="#174b57" stroke="url(#disk)" stroke-width="8"/>
+  <ellipse cx="141" cy="121" rx="68" ry="28" fill="#1f6570" stroke="url(#disk)" stroke-width="8"/>
+  <path d="M141 122c0-30-1-52 5-78" fill="none" stroke="#b9f17e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M146 78c-32 3-48-8-49-29 24-12 44-8 49 29Z" fill="url(#leaf)"/>
+  <path d="M146 61c6-28 24-38 48-31-1 24-17 38-48 31Z" fill="url(#leaf)"/>
+  <text x="264" y="111" fill="#f0fff2" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="72" font-weight="800" letter-spacing="-3">sprout</text>
+  <text x="269" y="156" fill="#a7d7d1" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="25" font-weight="500">Fresh Postgres for every worktree.</text>
+  <path d="M267 184h553" stroke="#4b817d" stroke-width="2" opacity=".7"/>
+  <text x="269" y="210" fill="#8ac4bc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17">git worktree + postgres + parallel agents</text>
+</svg>
