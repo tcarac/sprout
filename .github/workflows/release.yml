@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag points to main
+        run: test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version: "1.25"
+
+      - name: Build archives and checksums
+        run: sh scripts/build-release.sh
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes --title "$GITHUB_REF_NAME"

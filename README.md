@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/tcarac/sprout/actions/workflows/go.yml"><img src="https://github.com/tcarac/sprout/actions/workflows/go.yml/badge.svg" alt="CI status" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-75d89c" alt="MIT license" /></a>
-  <img src="https://img.shields.io/badge/Go-1.25-58bed0" alt="Go 1.25" />
+  <a href="https://github.com/tcarac/sprout/releases/latest"><img src="https://img.shields.io/badge/install-prebuilt%20binary-58bed0" alt="Prebuilt binaries" /></a>
   <img src="https://img.shields.io/badge/PostgreSQL-13%2B-6ba7bf" alt="PostgreSQL 13 or newer" />
 </p>
 
@@ -33,18 +33,21 @@ the application. Refresh the seed when the clean source changes.
 
 ### 1. Install
 
-You need Git, PostgreSQL 13+, Go 1.25, and `pg_dump` / `pg_restore` on `PATH`.
+You need Git, PostgreSQL 13+, and `pg_dump` / `pg_restore` on `PATH`.
 The PostgreSQL role must be able to read the source and create and drop
 databases.
 
+On macOS or Linux, install the latest prebuilt binary:
+
 ```sh
-git clone https://github.com/tcarac/sprout.git
-cd sprout
-GOTOOLCHAIN=go1.25.0 go install ./cmd/sprout
+curl -fsSL https://raw.githubusercontent.com/tcarac/sprout/main/install.sh | sh
 ```
 
-The installed binary is placed in your Go `bin` directory; put that directory
-on `PATH` if it is not already there.
+The installer verifies the release checksum and places `sprout` in
+`~/.local/bin`. Add that directory to your `PATH` if needed. Set
+`SPROUT_INSTALL_DIR` to choose another location. For Windows, download the
+matching `.zip` from [Releases](https://github.com/tcarac/sprout/releases/latest)
+and place `sprout.exe` on your `PATH`. **Go is only needed to build from source.**
 
 ### 2. Connect your application repository
 
@@ -128,7 +131,10 @@ rebuilds a missing seed automatically.
 
 ## Development
 
+Contributors need Go 1.25. To build locally:
+
 ```sh
+go build -o sprout ./cmd/sprout
 go test ./pkg/worktree ./cmd/sprout
 go test ./... -run '^$' # compile the full project
 ```
